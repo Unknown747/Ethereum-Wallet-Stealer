@@ -32,7 +32,7 @@ func weiToEther(wei *big.Int) *big.Float {
 
 func HasBalance(address string) *big.Float {
 	resp, err := http.Get(
-		"https://api.etherscan.io/api?module=account&action=balance&address=" + address + "&tag=latest&apikey=HVIFHDEQKUUCMPB7FB6CHGBC7CPG6ZIWX6")
+		"https://api.etherscan.io/api?module=account&action=balance&address=" + address + "&tag=latest&apikey=MYNQIKWRIM48F5JW3AFNWHKFQ5FP9K52MP")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -82,7 +82,7 @@ func Run(addressList []string, pkList []string) {
 	list := chunkSlice(addressList, 20)
 	for _, lst := range list {
 		resp, err := http.Get(
-			"https://api.etherscan.io/api?module=account&action=balancemulti&address=" + strings.Join(lst, ",") + "&tag=latest&apikey=HVIFHDEQKUUCMPB7FB6CHGBC7CPG6ZIWX6")
+			"https://api.etherscan.io/api?module=account&action=balancemulti&address=" + strings.Join(lst, ",") + "&tag=latest&apikey=MYNQIKWRIM48F5JW3AFNWHKFQ5FP9K52MP")
 		if err != nil {
 			panic(err)
 		}
